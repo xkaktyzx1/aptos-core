@@ -822,6 +822,16 @@ module aptos_framework::account {
         revoke_signer_capability(&alice, charlie_addr);
     }
 
+    #[test_only]
+    public fun get_signer_capability_offer_proof_challenge_V2(source_address: address, recipient_address: address) :SignerCapabilityOfferProofChallengeV2 {
+       let challenge = SignerCapabilityOfferProofChallengeV2 {
+            sequence_number: get_sequence_number(source_address),
+            source_address: alice_addr,
+            recipient_address: bob_addr,
+        }; 
+        challenge
+    }
+
     //
     // Tests for key rotation
     //
