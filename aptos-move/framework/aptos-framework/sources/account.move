@@ -823,11 +823,11 @@ module aptos_framework::account {
     }
 
     #[test_only]
-    public fun get_signer_capability_offer_proof_challenge_V2(source_address: address, recipient_address: address): SignerCapabilityOfferProofChallengeV2 {
+    public fun get_signer_capability_offer_proof_challenge_V2(source_address: address, recipient_address: address): SignerCapabilityOfferProofChallengeV2 acquires Account {
        let challenge = SignerCapabilityOfferProofChallengeV2 {
             sequence_number: get_sequence_number(source_address),
-            source_address: alice_addr,
-            recipient_address: bob_addr,
+            source_address: source_address,
+            recipient_address: recipient_address,
         }; 
         challenge
     }
