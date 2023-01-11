@@ -828,7 +828,7 @@ module aptos_framework::account {
             sequence_number: get_sequence_number(source_address),
             source_address: source_address,
             recipient_address: recipient_address,
-        }; 
+        };
         challenge
     }
 
